@@ -1,14 +1,14 @@
 import { useState } from "react";
 import { Form, FormContainer, Input, SendButton, StyledLabel, RegisterButton } from "./styled";
 
-function TelaLogin(props) {
+function TelaLogin({mudarTela}) {
 
   const login = () => {
-    props.mudarTela("TelaPrincipal")
+    mudarTela("TelaPrincipal")
   }
 
   const mostrarTelaCadastro = () => {
-    props.mudarTela("TelaCadastro")
+    mudarTela("TelaCadastro")
   }
 
   let [email, setEmail] = useState("")

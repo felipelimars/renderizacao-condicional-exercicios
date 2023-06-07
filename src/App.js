@@ -20,8 +20,8 @@ const MainContainer = styled.main`
 `
 
 function App() {
-  const [telaAtual, setTelaAtual] = useState("TelaLogin")
 
+  const [telaAtual, setTelaAtual] = useState("TelaLogin")
   const mudarTela = (novaTela) => {
     setTelaAtual(novaTela)
   }

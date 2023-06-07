@@ -15,7 +15,6 @@ const TelaCadastroEndereco = ({ mudarTela }) => {
 
   const cadastrarEndereco = (event) => {
     if (endereco.length && numeroResidencial.length && complemento.length && telefone.length) {
-
       console.log({ endereco, numeroResidencial, complemento, telefone });
       tela()
 
@@ -64,7 +63,7 @@ const TelaCadastroEndereco = ({ mudarTela }) => {
           Telefone
           <Input onChange={imprimirEndereco4} value={telefone} id="Telefone" />
         </StyledLabel>
-        
+
         <Button onClick={cadastrarEndereco}>Confirmar</Button>
       </Form>
     </FormContainer>

@@ -4,7 +4,6 @@ import { useState } from "react";
 function TelaCadastro({ mudarTela }) {
 
   const cadastrarEndereco = () => {
-
     mudarTela("TelaCadastroEndereco")
   }
 
@@ -21,7 +20,6 @@ function TelaCadastro({ mudarTela }) {
     if (novoNome.length && novoEmail.length && novaSenha.length && confirmacao.length) {
       console.log({ novoNome, novoEmail, novaSenha, confirmacao });
       cadastrarEndereco()
-
     } else {
       alert("Preencha os campos abaixo");
     }
