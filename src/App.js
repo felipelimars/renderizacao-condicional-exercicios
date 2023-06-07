@@ -2,8 +2,8 @@ import { useState } from "react";
 import styled, { createGlobalStyle } from "styled-components";
 import TelaLogin from "./components/TelaLogin/TelaLogin";
 import TelaCadastro from "./components/TelaCadastro/TelaCadastro";
+import TelaCadastroEndereco from "./components/TelaCadastroEndereco/TelaCadastroEndereco";
 import TelaPrincipal from "./components/TelaPrincipal/TelaPrincipal.js";
-
 const GlobalStyled = createGlobalStyle`
   html {
     font-family: sans-serif9;
@@ -34,9 +34,11 @@ function App() {
       case "TelaCadastro":
         return <TelaCadastro mudarTela={mudarTela} />;
 
+      case "TelaCadastroEndereco":
+        return <TelaCadastroEndereco mudarTela={mudarTela} />
+
       case "TelaPrincipal":
         return <TelaPrincipal mudarTela={mudarTela} />
-
       default:
         return <p>Tela inválida</p>
     }
@@ -45,7 +47,6 @@ function App() {
   return (
     <MainContainer >
       <GlobalStyled />
-
       {renderizaTela()}
     </MainContainer>
   );

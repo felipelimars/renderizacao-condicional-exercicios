@@ -1,14 +1,47 @@
 import { Form, FormContainer, Input, StyledLabel, SendButton, BackToLoginButton } from "./styled";
+import { useState } from "react";
 
-function TelaCadastro(props) {
-  const cadastrar = () => {
-    // fluxo de cadastro (ainda veremos)
-    props.mudarTela("TelaPrincipal")
+function TelaCadastro({ mudarTela }) {
+
+  const cadastrarEndereco = () => {
+
+    mudarTela("TelaCadastroEndereco")
   }
 
   const mostrarTelaLogin = () => {
-    props.mudarTela("TelaLogin")
+    mudarTela("TelaLogin")
   }
+
+  let [novoNome, setNovoNome] = useState("")
+  let [novoEmail, setNovoEmail] = useState("")
+  let [novaSenha, setNovaSenha] = useState("")
+  let [confirmacao, setConfirmacao] = useState("")
+
+  const cadastrarUsuario = (event) => {
+    if (novoNome.length && novoEmail.length && novaSenha.length && confirmacao.length) {
+      console.log({ novoNome, novoEmail, novaSenha, confirmacao });
+      cadastrarEndereco()
+
+    } else {
+      alert("Preencha os campos abaixo");
+    }
+  }
+
+  const imprimirCampos = (event) => {
+    setNovoNome(event.target.value);
+  };
+
+  const imprimirCampos2 = (event) => {
+    setNovoEmail(event.target.value);
+  };
+
+  const imprimirCampos3 = (event) => {
+    setNovaSenha(event.target.value);
+  };
+
+  const imprimirCampos4 = (event) => {
+    setConfirmacao(event.target.value);
+  };
 
   return (
     <FormContainer>
@@ -17,25 +50,25 @@ function TelaCadastro(props) {
       <Form>
         <StyledLabel htmlFor="titulo">
           Nome:
-          <Input id="titulo" />
+          <Input onChange={imprimirCampos} value={novoNome} id="titulo" />
         </StyledLabel>
 
         <StyledLabel htmlFor="foto">
           E-mail:
-          <Input id="foto" />
+          <Input onChange={imprimirCampos2} value={novoEmail} id="foto" />
         </StyledLabel>
 
         <StyledLabel htmlFor="descricao">
           Senha:
-          <Input id="descricao" />
+          <Input onChange={imprimirCampos3} value={novaSenha} id="descricao" />
         </StyledLabel>
 
         <StyledLabel htmlFor="descricao">
           Confirmação da senha:
-          <Input id="descricao" />
+          <Input onChange={imprimirCampos4} value={confirmacao} id="descricao" />
         </StyledLabel>
 
-        <SendButton onClick={cadastrar}>Cadastrar</SendButton>
+        <SendButton onClick={cadastrarUsuario}>Cadastrar</SendButton>
 
         <BackToLoginButton onClick={mostrarTelaLogin}>Já possuo cadastro</BackToLoginButton>
       </Form>
