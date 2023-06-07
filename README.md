@@ -8,6 +8,7 @@ Para o exercício de hoje, vamos utilizar um template! Dentro desse template voc
 
 
 Para executar este exercício, você pode criar uma nova aplicação React, utilizar o **CodeSandbox** ou usar este template do repositório.
+
 - Caso use este template, lembre-se de dar um `npm install` assim que baixar! 
 - Caso estiver usando o codeSandBox, pode usar esse template aqui: 
 

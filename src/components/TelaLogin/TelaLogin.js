@@ -1,14 +1,38 @@
+import { useState } from "react";
 import { Form, FormContainer, Input, SendButton, StyledLabel, RegisterButton } from "./styled";
 
-function TelaLogin(props) {
+function TelaLogin({mudarTela}) {
+
   const login = () => {
-    // fluxo de login (ainda veremos)
-    props.mudarTela("TelaPrincipal")
+    mudarTela("TelaPrincipal")
   }
 
   const mostrarTelaCadastro = () => {
-    props.mudarTela("TelaCadastro")
+    mudarTela("TelaCadastro")
   }
+
+  let [email, setEmail] = useState("")
+  let [senha, setSenha] = useState("")
+
+  const enviarDados = (event) => {
+    if (email.length && senha.length) {
+      console.log({email, senha});
+      setEmail("")
+      setSenha("") 
+      login()
+
+    } else {
+      alert("Preencha os campos abaixo!");
+    }
+  }
+
+  const imprimirDados = (event) => {
+    setEmail(event.target.value);
+  };
+
+  const imprimirDados2 = (event) => {
+    setSenha(event.target.value);
+  };
 
   return (
     <FormContainer >
@@ -16,14 +40,14 @@ function TelaLogin(props) {
 
       <Form>
         <StyledLabel>E-mail:
-          <Input />
+          <Input onChange={imprimirDados}  value={email}/>
         </StyledLabel>
 
         <StyledLabel>Senha:
-          <Input type={"password"} />
+          <Input onChange={imprimirDados2} value={senha}/>
         </StyledLabel>
 
-        <SendButton onClick={login}>Entrar</SendButton>
+        <SendButton onClick={enviarDados}>Entrar</SendButton>
 
         <RegisterButton onClick={mostrarTelaCadastro}>Cadastre-se</RegisterButton>
       </Form>
